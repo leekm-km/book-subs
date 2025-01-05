@@ -11,14 +11,17 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
+import AutoStoriesIcon from '@mui/icons-material/AutoStories';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+
 
 const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function ResponsiveAppBar() {
-  const [isLoggedIn, setIsLoggedIn] = React.useState(false); // 로그인 상태 관리
+  const navigate = useNavigate(); 
+  const [isLoggedIn, setIsLoggedIn] = React.useState(false); 
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -47,10 +50,10 @@ function ResponsiveAppBar() {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar position="sticky">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+          <AutoStoriesIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
           <Typography
             variant="h6"
             noWrap
@@ -104,7 +107,7 @@ function ResponsiveAppBar() {
               ))}
             </Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+          <AutoStoriesIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
           <Typography
             variant="h5"
             noWrap
@@ -162,8 +165,11 @@ function ResponsiveAppBar() {
                   {settings.map((setting) => (
                     <MenuItem
                       key={setting}
-                      onClick={setting === 'Logout' ? handleLogout : handleCloseUserMenu}
-                    >
+                      onClick={()=>{
+                        if (setting === 'Logout') handleLogout();
+                        else navigate(`/${setting.toLowerCase()}`);
+                        handleCloseUserMenu();}
+                      }>
                       <Typography sx={{ textAlign: 'center' }}>{setting}</Typography>
                     </MenuItem>
                   ))}

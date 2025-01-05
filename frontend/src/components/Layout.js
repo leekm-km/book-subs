@@ -1,11 +1,13 @@
 import React from 'react';
 import ResponsiveAppBar from './ResponsiveAppBar';
+import Footer from './Footbar';
 
 const Layout = ({ children }) => {
   return (
     <div>
       <ResponsiveAppBar />
-      <main>{children}</main> {/* 각 페이지 콘텐츠가 여기에 렌더링 */}
+      <main style={{ minHeight: 'calc(100vh - 64px - 48px)' }}>{children}</main>
+      <Footer />
     </div>
   );
 };
