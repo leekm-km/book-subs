@@ -57,12 +57,29 @@ function ResponsiveAppBar() {
           <Typography
             variant="h6"
             noWrap
-            component={Link}
-            to="/"
-            href="#"
+            component="a"
+            href="/"
             sx={{
               mr: 2,
-              display: { xs: 'none', md: 'flex' },
+              display: { xs: 'flex', md: 'none' }, // 모바일에서만 표시
+              fontFamily: 'monospace',
+              fontWeight: 700,
+              letterSpacing: '.3rem',
+              color: 'inherit',
+              textDecoration: 'none',
+            }}
+          >
+          
+          </Typography>
+
+          <Typography
+            variant="h6"
+            noWrap
+            component="a"
+            href="/"
+            sx={{
+              mr: 2,
+              display: { xs: 'none', md: 'flex' }, // 데스크톱에서만 표시
               fontFamily: 'monospace',
               fontWeight: 700,
               letterSpacing: '.3rem',
