@@ -15,7 +15,7 @@ import AutoStoriesIcon from '@mui/icons-material/AutoStories';
 import { Link, useNavigate } from 'react-router-dom';
 
 const pages = ['Products', 'Pricing', 'Blog'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const settings = ['Account', 'Dashboard', 'Logout'];
 
 function ResponsiveAppBar() {
   const navigate = useNavigate();
@@ -54,7 +54,7 @@ function ResponsiveAppBar() {
             to="/"
             sx={{
               mr: 2,
-              display: { xs: 'none', md: 'flex' }, // 데스크탑 로고
+              display: { xs: 'none', md: 'flex' },
               fontFamily: 'monospace',
               fontWeight: 700,
               letterSpacing: '.3rem',
@@ -110,7 +110,7 @@ function ResponsiveAppBar() {
             to="/"
             sx={{
               mr: 2,
-              display: { xs: 'flex', md: 'none' }, // 모바일 로고
+              display: { xs: 'flex', md: 'none' },
               flexGrow: 1,
               fontFamily: 'monospace',
               fontWeight: 700,
@@ -128,7 +128,7 @@ function ResponsiveAppBar() {
               <Button
                 key={page}
                 component={Link}
-                to={`/${page.toLowerCase()}`} // 페이지 이름을 경로로 변환
+                to={`/${page.toLowerCase()}`}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
                 {page}
@@ -137,7 +137,7 @@ function ResponsiveAppBar() {
           </Box>
 
           {/* 사용자 메뉴 */}
-          <Box sx={{ flexGrow: 0 }}>
+          <Box sx={{ flexGrow: 0, display: 'flex', alignItems: 'center', gap: 1 }}>
             {isLoggedIn ? (
               <>
                 <Tooltip title="Open settings">
@@ -176,9 +176,25 @@ function ResponsiveAppBar() {
                 </Menu>
               </>
             ) : (
-              <Button onClick={handleLogin} sx={{ color: 'white' }}>
-                Login
-              </Button>
+              <>
+                <Button
+                  onClick={handleLogin}
+                  sx={{ color: 'white' }}
+                >
+                  로그인
+                </Button>
+                <Button
+                  onClick={() => navigate('/Signup')}
+                  variant="outlined"
+                  sx={{
+                    color: 'white',
+                    borderColor: 'white',
+                    '&:hover': { backgroundColor: 'rgba(255, 255, 255, 0.1)' },
+                  }}
+                >
+                  회원가입
+                </Button>
+              </>
             )}
           </Box>
         </Toolbar>
