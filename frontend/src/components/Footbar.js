@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Typography, Grid, Link } from '@mui/material';
+import { Box, Typography, Grid} from '@mui/material';
 
 const Footer = () => {
   return (
@@ -19,15 +19,9 @@ const Footer = () => {
           <Typography variant="body2">대표 : 이용수 </Typography>
           <Typography variant="body2">주소 : 부산 사상구 학감대로177번길 56 </Typography>
           <Typography variant="body2">연락처 : 051-316-3070 </Typography>
-          <Typography variant="body3">© All Rights Reserved.</Typography>
         </Grid>
         <Grid item xs={12} sm={4}>
-          <Typography variant="h6">Links</Typography>
-          <Box display="flex" flexDirection="row" gap={1}>
-            <Link href="/" color="inherit" underline="none">Home</Link>
-            <Link href="/products" color="inherit" underline="none">Products</Link>
-            <Link href="/contact" color="inherit" underline="none">Contact</Link>
-          </Box>
+          <Typography variant="h6">© All Rights Reserved.</Typography>
         </Grid>
         <Grid item xs={12} sm={4}>
           <Typography variant="h6">Contact Us</Typography>
